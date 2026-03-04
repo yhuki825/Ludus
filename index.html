@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ludus株式会社は、物流・運送、メディア・クリエイティブ、EC・通信販売、リフォーム・空間設計、総合設備・電気工事、環境衛生・駆除業務を通じ、人々の暮らしとビジネスを多角的にサポートする総合サービスプロバイダーです。">
+    <meta property="og:title" content="Ludus株式会社 | 生活とビジネスを支える多角化ソリューション">
+    <meta property="og:description" content="物流・建設・クリエイティブ・環境改善を通じ、社会インフラを多角的にサポートする総合サービスプロバイダー。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <title>Ludus株式会社 | 生活とビジネスを支える多角化ソリューション</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons (fixed version) -->
+    <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+        /* ===== Base ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* ===== Hero ===== */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ===== Card hover ===== */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ===== Scroll animation ===== */
+        .section-appear {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Mobile menu ===== */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.35s ease;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        /* ===== Focus ring ===== */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- ===== Header ===== -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100" role="banner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center" aria-label="Ludus株式会社 トップへ戻る">
+                    <span class="text-2xl font-bold tracking-tighter text-blue-900 uppercase">Ludus Inc.</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium" aria-label="メインナビゲーション">
+                    <a href="#vision"   class="text-slate-600 hover:text-blue-900 transition-colors duration-200">VISION</a>
+                    <a href="#services" class="text-slate-600 hover:text-blue-900 transition-colors duration-200">SERVICES</a>
+                    <a href="#company"  class="text-slate-600 hover:text-blue-900 transition-colors duration-200">COMPANY</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button
+                    id="mobile-menu-button"
+                    class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                    aria-label="メニューを開く"
+                >
+                    <i data-lucide="menu" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-slate-100 px-4" role="navigation" aria-label="モバイルナビゲーション">
+            <div class="py-4 space-y-1">
+                <a href="#vision"   class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-900 transition-colors">VISION</a>
+                <a href="#services" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-900 transition-colors">SERVICES</a>
+                <a href="#company"  class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-900 transition-colors">COMPANY</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== Hero Section ===== -->
+        <section class="relative min-h-screen flex items-center justify-center hero-gradient text-white pt-20" aria-label="ヒーロー">
+            <!-- Background image overlay -->
+            <div class="absolute inset-0 hero-bg opacity-20 mix-blend-overlay" aria-hidden="true"></div>
+
+            <!-- Content -->
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <p class="text-sm font-semibold tracking-[0.3em] text-blue-400 uppercase mb-6">Total Infrastructure Solutions</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    あらゆる領域で、<br>
+                    社会の期待を超える。
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light">
+                    Ludus株式会社は、物流、建設、クリエイティブ、環境改善を通じ、<br class="hidden md:block">
+                    人々の暮らしとビジネスのインフラを多角的にサポートする総合サービスプロバイダーです。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 shadow-lg shadow-blue-900/30">
+                        事業内容を知る
+                    </a>
+                    <a href="#company" class="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 active:bg-white/20 transition-all duration-200">
+                        会社概要
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
+                <i data-lucide="mouse" class="text-white/40 w-6 h-6"></i>
+            </div>
+        </section>
+
+        <!-- ===== Vision Section ===== -->
+        <section id="vision" class="py-24 bg-white section-appear" aria-labelledby="vision-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    <!-- Text -->
+                    <div>
+                        <p class="text-sm font-bold tracking-[0.3em] text-blue-600 uppercase mb-4 italic">Corporate Vision</p>
+                        <h2 id="vision-heading" class="text-3xl md:text-4xl font-bold mb-8 leading-snug">
+                            多様な専門性を統合し、<br>新しい価値の形を創る。
+                        </h2>
+                        <p class="text-slate-600 leading-loose mb-6">
+                            私たちの事業は一見多岐にわたりますが、その核心はすべて「インフラ（基盤）」の最適化にあります。荷物を運ぶ、空間を作る、情報を発信する、環境を守る。これらはすべて、現代社会が円滑に機能するために不可欠な要素です。
+                        </p>
+                        <p class="text-slate-600 leading-loose">
+                            Ludusは、それぞれの分野で培った高い技術と企画力を融合させ、既存の枠組みにとらわれないコンサルティングとソリューションを提供します。
+                        </p>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="grid grid-cols-2 gap-4" aria-hidden="true">
+                        <div class="h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img
+                                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80"
+                                alt="チームミーティングの様子"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+                        <div class="h-64 mt-8 rounded-2xl overflow-hidden shadow-lg">
+                            <img
+                                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=400&q=80"
+                                alt="技術作業の様子"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Services Section ===== -->
+        <section id="services" class="py-24 bg-slate-50 section-appear" aria-labelledby="services-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Heading -->
+                <div class="text-center mb-16">
+                    <p class="text-sm font-bold tracking-[0.3em] text-blue-600 uppercase mb-4">Our Services</p>
+                    <h2 id="services-heading" class="text-3xl font-bold">事業内容</h2>
+                </div>
+
+                <!-- Service Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- 物流・運送 -->
+                    <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
+                            <i data-lucide="truck" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">物流・運送事業</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            貨物軽自動車運送事業を展開。効率的で確実なラストワンマイルの配送を通じて、物流インフラを支えます。
+                        </p>
+                    </article>
+
+                    <!-- メディア・クリエイティブ -->
+                    <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
+                            <i data-lucide="video" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">メディア・クリエイティブ</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            音楽、動画、映像等の配信に関する企画・制作。インターネットを通じた新しい文化と情報の価値を創出します。
+                        </p>
+                    </article>
+
+                    <!-- EC・通信販売 -->
+                    <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
+                            <i data-lucide="shopping-cart" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">EC・通信販売事業</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            インターネットを活用した通信販売業。利便性と信頼を追求したプラットフォーム運営を行っています。
+                        </p>
+                    </article>
+
+                    <!-- リフォーム・空間設計 -->
+                    <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
+                            <i data-lucide="home" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">リフォーム・空間設計</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            リフォーム工事の設計・施工。住まいや商業空間を、機能美と快適性を兼ね備えた場所に再構築します。
+                        </p>
+                    </article>
+
+                    <!-- 総合設備・電気工事 -->
+                    <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
+                            <i data-lucide="hammer" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">総合設備・電気工事</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            電気、通信、水道工事。あらゆるライフラインの設計・管理から仲介・斡旋まで幅広く対応します。
+                        </p>
+                    </article>
+
+                    <!-- 環境衛生・駆除 -->
+                    <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <div class="w-14 h-14 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">環境衛生・駆除業務</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            害虫・害獣の駆除および防除業務。安全で快適な居住空間・営業空間を維持するための専門サービスを提供します。
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Consulting Banner -->
+                <div class="mt-12 bg-blue-900 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between text-white gap-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">総合コンサルティング</h3>
+                        <p class="text-blue-200 leading-relaxed">
+                            各事業に付随する一切のコンサルティング業務を承っております。ビジネスモデルの構築から運用までサポートします。
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0" aria-hidden="true">
+                        <i data-lucide="users" class="w-16 h-16 opacity-20"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Company Section ===== -->
+        <section id="company" class="py-24 bg-white section-appear" aria-labelledby="company-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+
+                    <!-- Company Info -->
+                    <div class="p-10 lg:p-20 lg:w-1/2">
+                        <p class="text-sm font-bold tracking-[0.3em] text-blue-400 uppercase mb-8 italic">Company Profile</p>
+                        <h2 id="company-heading" class="text-3xl font-bold mb-12">会社概要</h2>
+
+                        <dl class="space-y-8">
+                            <div>
+                                <dt class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">Company Name</dt>
+                                <dd class="text-xl">Ludus株式会社</dd>
+                            </div>
+                            <div>
+                                <dt class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">Representative</dt>
+                                <dd class="text-xl">代表取締役 佐竹 仁己</dd>
+                            </div>
+                            <div>
+                                <dt class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">Location</dt>
+                                <dd class="text-lg leading-relaxed">
+                                    〒144-0034<br>
+                                    東京都大田区西糀谷1-19-12
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">Contact</dt>
+                                <dd>
+                                    <a href="mailto:ludtsqjin0702@gmail.com" class="text-lg font-mono hover:text-blue-300 transition-colors duration-200 break-all">
+                                        ludtsqjin0702@gmail.com
+                                    </a>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="lg:w-1/2 bg-slate-800 p-10 lg:p-20 flex flex-col justify-center">
+                        <div class="aspect-video bg-slate-700 rounded-xl overflow-hidden relative flex items-center justify-center">
+                            <i data-lucide="map-pin" class="text-white/30 w-16 h-16" aria-hidden="true"></i>
+                        </div>
+                        <p class="mt-6 text-slate-400 text-sm leading-relaxed">
+                            ※東京都大田区を拠点に、首都圏および広域のインフラネットワークを構築しています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-white border-t border-slate-100 py-12" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                <!-- Brand -->
+                <a href="#" class="text-xl font-bold text-blue-900 uppercase" aria-label="Ludus株式会社 トップへ戻る">
+                    Ludus Inc.
+                </a>
+
+                <!-- Footer Nav -->
+                <nav class="flex gap-6 text-sm text-slate-500" aria-label="フッターナビゲーション">
+                    <a href="#vision"   class="hover:text-blue-900 transition-colors duration-200">VISION</a>
+                    <a href="#services" class="hover:text-blue-900 transition-colors duration-200">SERVICES</a>
+                    <a href="#company"  class="hover:text-blue-900 transition-colors duration-200">COMPANY</a>
+                </nav>
+
+                <!-- Copyright -->
+                <p class="text-slate-400 text-sm">&copy; 2026 Ludus Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scripts ===== -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // ---- Mobile Menu ----
+        const menuBtn    = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', isOpen);
+            menuBtn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.setAttribute('aria-label', 'メニューを開く');
+            });
+        });
+
+        // ---- Scroll-triggered animations ----
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // fire once
+                    }
+                });
+            },
+            { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        document.querySelectorAll('.section-appear').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
